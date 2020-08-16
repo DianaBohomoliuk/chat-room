@@ -1,0 +1,46 @@
+$bg-color: #FEFCF9;
+$primary-color: #353941;
+$lightblue-color: #5dbfe2;
+$lighten: lighten($color: $bg-color, $amount: 10);
+$radius: 3px;
+$regular-font: 'Work Sans', sans-serif;
+
+@mixin bold_font($padding, $weight, $size, $color) {
+    font-family: $regular-font;
+    font-weight: $weight;
+    font-size: $size;
+    padding: $padding;
+    color: $color ;
+}
+
+@mixin tooltip($bottom, $color){
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background-color: $color;
+    transform: rotate(45deg);
+    bottom: $bottom;
+    box-shadow: 0 0 7px  rgba(128, 128, 128, 0.26);
+};
+
+@mixin flexbox ($direct, $align, $justify){
+    display: flex;
+    flex-direction: $direct;
+    align-items: $align;
+    justify-content: $justify;
+
+};
+
+@mixin message-info ($amount){
+    .message-info{
+        padding-bottom: .625rem;
+        .nameInMessage, .time{
+            font-family: $regular-font;
+
+        }
+        .time{
+            color: darken($color: $lighten, $amount: $amount) ;
+        }
+    }
+};

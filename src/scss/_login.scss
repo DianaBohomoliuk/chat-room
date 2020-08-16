@@ -1,0 +1,69 @@
+
+.userForm{
+    @include flexbox (row, center, center);
+    height: 90%;
+    @include for-size(phone-landscape){
+        @include flexbox (column, center, center);
+        // height: 80%;
+
+    }
+    .info{
+        margin-right: 12rem;
+        @include for-size(phone-landscape){
+            margin-right: 0;
+        }
+        &-log{
+            @include bold_font(.625em,700, 3em, $primary-color);
+            margin-bottom: 0px;
+            @include for-size(phone-portrait){
+                font-size: 2em;
+            }
+        }
+        &-username{
+            color: darken($color: $bg-color, $amount: 40);
+            font-size: 1.25em;
+            font-weight: 500;
+            margin-bottom: 5rem;
+            margin-top: 1.25em;
+            @include for-size(phone-portrait){
+                font-size: 1em;
+            }
+        }
+        @include flexbox (column, center, center);
+
+    }
+    .inputs{
+        @include flexbox (column, center, center);
+
+        position: relative;
+        .username{
+            @include bold_font(2rem ,500, 2em, $primary-color);
+            @include for-size(phone-portrait){
+                font-size: 1.5em;
+            }
+        }
+        .name-missed, .name-taken{
+            display: none;
+            position: absolute;
+            top: 5rem;
+            width: max-content;
+            @include bold_font( 0 0 .5rem 0, lighter, .9em, rgb(219, 18, 18))
+        }
+        .input-username{
+            border: 1px solid $lightblue-color ;
+            outline: none;
+            border-radius: $radius;
+            height: 2.45rem;
+            width: 12.5rem;
+            @include bold_font(.25em, 100, 1.5em, black);
+                &:focus{
+                    box-shadow: inset 0 0 3px  $lightblue-color;
+                }
+        }
+        @import 'btn';
+        .btn-registrate{
+            margin-top: 1.5rem;
+        }
+    }
+}
+

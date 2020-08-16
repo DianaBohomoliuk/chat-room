@@ -1,0 +1,176 @@
+.content{
+    padding: .6rem;
+    position: relative;
+    border-radius: $radius+2px;
+}
+
+.nameInMessage{
+    font-size: 1.05em;
+    font-weight: 500;
+}
+.time{
+    font-size: .95em;
+}
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: $bg-color;
+    height: 100vh;
+    header{
+        height: 10%;
+        @include flexbox (row, center, flex-start);
+        @include for-size(phone-portrait){
+            height: 7%;
+        }
+        .title{
+            width: 25%;
+            @include bold_font(.6em, 700, 2em, darken($color: $bg-color, $amount: 40));
+            @include for-size(phone-portrait){
+                width: 35%;
+                font-size: 1.5em;
+                padding: .2em;
+            }
+        }
+        .number_online{
+            @include bold_font(0, 400, 1em, $primary-color);
+            @include for-size(desktop){
+                display: none;
+            }
+        }
+    }
+}
+
+.chatForm{
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    @include for-size(phone-portrait){
+        height: 93%;
+    }
+    .members-place{
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        border-right: 1px solid rgb(179, 179, 179);
+        @include for-size(phone-landscape){
+            display:none;
+        }
+        .members{
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            .members_online{
+                @include bold_font(0, 400, 1.5em, $primary-color)
+            }
+            .member{
+                @include bold_font(.6em,300, 1.2em, $lightblue-color);
+                list-style: none;
+
+            }
+        }
+    }
+    .chat-place{
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        @include for-size(phone-landscape){
+            width: 100%;
+        }
+        .messages{
+            display: flex;
+            flex-direction: column;
+            overflow-y: scroll;
+            scroll-behavior: auto ;
+            .message {
+                border-radius: $radius+2px;
+                position: relative;
+                max-width: 25rem;
+                display: inline-block;
+                margin: 1.25rem;
+                @include bold_font(2px, 400, 1.25em, black);
+                box-shadow: 0 0 7px  rgba(128, 128, 128, 0.26);
+                word-wrap: break-word;
+                @include for-size(phone-landscape){
+                    max-width: 20rem;
+                }
+                @include for-size(phone-portrait){
+                    max-width: 15rem;
+                    font-size: 1em;
+                }
+
+                &_other{
+                    position: relative;
+                    display: block;
+                    padding: 0;
+                    &::before{
+                        @include tooltip(-8px, $lighten);
+                        left: 15px;
+                    }
+                    .message_other_content{
+                        @extend .content;
+                        background-color: $lighten;
+                        @include message-info (30)
+                    }
+                }
+                &_my{
+                    position: relative;
+                    display: block;
+                    padding: 0;
+                    align-self: flex-end;
+                    &::before{
+                        @include tooltip(-8px, $lightblue-color);
+                        right: 15px;
+                    }
+                    .message_my_content{
+                        @extend .content;
+                        background-color: $lightblue-color;
+                        @include message-info (5)
+                    }
+                }
+            }
+        }
+
+
+
+        .message-inputs{
+            display: flex;
+            justify-content: space-around;
+            max-height: 20rem;
+            align-items: center;
+            @include for-size(phone-portrait){
+                align-items: stretch;
+            }
+            .message-place{
+                margin: 0 0 10px 3px ;
+                width: 80%;
+                max-height: 20em;
+                border-color: $lightblue-color;
+                @include bold_font(2px, 400, 1em, black);
+                resize: none;
+                outline: none;
+                border-radius: $radius;
+                &:focus{
+                    box-shadow: inset 0 0 3px  $lightblue-color;
+                }
+                @include for-size(phone-portrait){
+                    width: 75%;
+                }
+            }
+            @import 'btn';
+            .btn-send{
+                @include for-size(phone-portrait){
+                    width: 25%;
+                    padding: 0;
+                    font-size: 1.2em;
+                    height: inherit;
+                    margin-bottom: 10px;
+                    line-height: 5em;
+
+                }
+            }
+        }
+
+    }
+}

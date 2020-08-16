@@ -1,0 +1,56 @@
+
+// @media screen and (max-width: 768px) and (min-width: 480px) {
+
+//     .userForm {
+//         @include flexbox (column, center, center);
+//         .info{
+//            margin-right: 0;
+//        }
+//    }
+//     .members-place{
+//         display: none;
+//     }
+//     .chat-place{
+//         width: 100%;
+//     }
+//     .message{
+//         @include bold_font(0, 400, 1em, black);
+//         max-width: 20em;
+//     }
+//     .message-inputs {
+//         align-items: stretch;
+//         margin: .3em;
+//         .btn{
+//             width: 17%;
+//             margin-bottom: .4em;
+//             line-height: 3.5em;
+//         }
+//     }
+//     .inputs .btn{
+//         width: 8.25rem;
+//         height: 1.5rem;
+
+//     }
+// }
+
+@mixin for-size($size) {
+    @if $size==phone-portrait{
+        @media (max-width:480px) {
+            @content;
+        }
+    }
+
+    @else if $size==phone-landscape{
+        @media (max-width: 768px) {
+            @content;
+        }
+    }
+    @else if $size==desktop {
+        @media (min-width: 768px){
+            @content;
+        }
+    }
+}
+
+
+

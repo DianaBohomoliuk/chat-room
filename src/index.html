@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>ChRoom</title>
+    <link rel="stylesheet" href="css/main.min.css"/>
+  </head>
+  <body>
+
+  <header>
+    <div class="title">ChRoom</div>
+    <div class="number_online"><span class="number"></span> online</div>
+  </header>
+  @include('login.html')
+  <div class="chatForm">
+    <aside class="members-place">
+      <ul class="members"><span class="members_online">Online now:</span>
+      </ul>
+    </aside>
+    <main class="chat-place">
+      <div class="messages">
+        <div class="message message_other"><div class="message_other_content">
+          <div class="message-info"><span class="nameInMessage">Vlad</span> <span class="time">5 pm.</span></div>
+          <div class="message_text message_text_other">
+          How are you?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex quisquam corporis obcaecati quibusdam vitae odit minus laudantium exercitationem? Necessitatibus at ex voluptates iure aut! Ipsum ut blanditiis nesciunt consequuntur quam saepe aliquam vero, asperiores officia laborum aspernatur labore nihil quis. Dolore quaerat voluptas nobis, nemo molestiae quidem pariatur perferendis nostrum?</div>
+        </div>
+      </div>
+      </div>
+      <div class="message-inputs">
+        <textarea autofocus name="message-place" class="message-place" placeholder="Your message.." rows="5" ></textarea>
+        <div class="btn-send btn">
+          <a href="#">Send</a>
+        </div>
+      </div>
+    </main>
+</div>
+
+<script src="js/main.js" type='module'></script>
+  </body>
+</html>
